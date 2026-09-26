@@ -1,0 +1,262 @@
+*
+{
+ color: hsl(239, 80%, 50%);
+
+}
+a {
+   color: #07cc2e;
+}
+href {
+      color: rgb(207, 21, 21);
+}
+ul {
+    color: brown;
+}
+li {
+    color: #0e81bf;
+}
+/* الألوان الافتراضية (الوضع الفاتح) */
+body {
+    background-color: #ffffff;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    direction: rtl;
+    text-align: right;
+}
+
+/* تنسيق الزرار */
+#theme-toggle {
+    background-color: #f0f0f0;
+    color: #ad0b0b;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 14px;
+}
+
+#theme-toggle:hover {
+    background-color: #ddd;
+}
+
+/* تصميم الوضع الليلي */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark-mode #theme-toggle {
+    background-color: #333;
+    color: #f0f0f0;
+    border-color: #555;
+}
+/* 1. إخفاء جميع القوائم الفرعية المندرجة جوه القوائم الرئيسية */
+nav ul ul {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #0a0000;
+    box-shadow: 0px 4px 8px rgba(240, 9, 9, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 180px;
+    z-index: 1000;
+    color: #07cc2e;
+}
+
+/* 2. جعل عناصر القائمة الرئيسية متجاورة وتأخذ وضع نسبي */
+nav > ul > li {
+    display: block!important;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/* 3. ترتيب القوائم المتداخلة العمقتين (مثل المواد جوه الصفوف) */
+nav ul ul ul {
+    right: 100%;
+    top: 0;
+}
+
+/* 4. إظهار القائمة الفرعية عند الوقوف بالماوس (Hover) على العنصر الأب */
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+}
+nav a{
+    display: block;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 1px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    color: #333;
+}
+nav ul li summary{
+    display: block;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 1px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    color: #d40404;
+}
+nav ul ul summary{
+    display: block;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 1px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    color: #0e04d4;
+}
+nav ul ul ul summary{
+    display: block;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 1px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    color: #088d27;
+}
+
+nav.main-menu > li {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* 5. ضبط ألوان القوائم في الوضع الليلي */
+body.dark-mode nav ul ul {
+    background-color: #2a2a2a;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+/* ضبط الصفحة */
+body {
+    min-height: 100vh;
+    background: #050505;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* 1. الخلفية المتحركة */
+.background {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 30%, #1b0035, transparent 35%),
+        radial-gradient(circle at 80% 70%, #001d3d, transparent 35%),
+        #050505;
+    animation: backgroundMove 8s ease-in-out infinite alternate;
+    z-index: -2;
+}
+
+@keyframes backgroundMove {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+}
+
+/* 2. خطوط الإضاءة المائلة */
+.line {
+    position: fixed;
+    width: 2px;
+    height: 140%;
+    background: linear-gradient(transparent, rgba(0, 200, 255, .7), transparent);
+    transform: rotate(25deg);
+    animation: moveLine 5s linear infinite;
+    opacity: .25;
+    z-index: -1;
+}
+
+.line:nth-child(2) { left: 30%; animation-delay: 1.5s; }
+.line:nth-child(3) { left: 70%; animation-delay: 3s; }
+
+@keyframes moveLine {
+    from { top: -150%; }
+    to { top: 150%; }
+}
+
+/* 3. نقطة الضوء المتحركة */
+.glow {
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: #0077ff;
+    filter: blur(120px);
+    opacity: .12;
+    pointer-events: none;
+    animation: glowMove 10s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes glowMove {
+    from { transform: translate(-30vw, -20vh); }
+    to { transform: translate(30vw, 20vh); }
+}
+
+/* 4. تطبيق الشكل الزجاجي العصري على خانات الكتب والمراحل (details & summary) */
+.stages-container details {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.stages-container summary {
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 25px rgba(0, 150, 255, .1);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+    transition: all 0.3s ease;
+}
+
+.stages-container summary:hover {
+    background: rgba(0, 170, 255, 0.15);
+    border-color: #00aaff;
+    box-shadow: 0 0 30px rgba(0, 170, 255, .3);
+    transform: translateY(-2px);
+}
+
+/* محتوى القوائم الداخلية */
+.stages-container .content {
+    padding-right: 15px;
+    margin-top: 10px;
+}
+
+.stages-container .content a {
+    display: block;
+    padding: 12px 18px;
+    margin: 8px 0;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: #00c6ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.stages-container .content a:hover {
+    border-color: #00aaff;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.25);
+    transform: translateX(-5px);
+}
