@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تسجيل الدخول - المنصة التعليمية</title>
-  <!-- ربط ملف الـ CSS من المجلد بتاعه -->
   <link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -15,34 +14,44 @@
 
     <!-- أزرار تحديد الصفة -->
     <div class="role-selector">
-        
       <button type="button" class="role-btn active" onclick="selectRole('student')">👨‍🎓 طالب</button>
       <button type="button" class="role-btn" onclick="selectRole('parent')">👨‍👩‍👦 ولي أمر</button>
-      
     </div>
 
     <!-- نموذج تسجيل دخول الطالب -->
-    <form id="student-form" class="auth-form" action="index.html" method="GET">
+    <form id="student-form" class="auth-form">
       <h3>دخول الطالب</h3>
+
       <div class="form-group">
         <label for="student-id">كود الطالب:</label>
         <input type="text" id="student-id" placeholder="أدخل كود الطالب" required>
       </div>
+
+      <!-- خانة الاسم تظهر تلقائياً للمستخدم الجديد فقط -->
+      <div class="form-group" id="student-name-group" style="display: none;">
+        <label for="student-name">اسم الطالب الرباعي (تسجيل جديد):</label>
+        <input type="text" id="student-name" placeholder="أدخل اسمك الكامل">
+      </div>
+
       <div class="form-group">
         <label for="student-pass">كلمة المرور:</label>
         <input type="password" id="student-pass" placeholder="أدخل كلمة المرور" required>
       </div>
+
+      <!-- رسالة توضيحية لتنبيه الطالب (جديد / قديم / خطأ) -->
+      <p id="student-msg" style="font-size: 13px; margin-bottom: 10px; text-align: center; display: none;"></p>
+
       <div class="form-group-options">
-  <label>
-    <input type="checkbox" name="remember"> تذكرني
-  </label>
-  <a href="#" class="forgot-pass">نسيت كلمة المرور؟</a>
-</div>
-      <button type="submit" class="submit-btn">دخول الطالب</button>
+        <label>
+          <input type="checkbox" name="remember"> تذكرني
+        </label>
+        <a href="#" class="forgot-pass">نسيت كلمة المرور؟</a>
+      </div>
+      <button type="submit" class="submit-btn" id="student-submit-btn">دخول الطالب</button>
     </form>
 
     <!-- نموذج تسجيل دخول ولي الأمر -->
-    <form id="parent-form" class="auth-form hidden" action="Parent-dash.html" method="GET">
+    <form id="parent-form" class="auth-form hidden">
       <h3>دخول ولي الأمر</h3>
       <div class="form-group">
         <label for="parent-phone">رقم الهاتف / البريد:</label>
@@ -56,18 +65,19 @@
         <label for="parent-pass">كلمة المرور:</label>
         <input type="password" id="parent-pass" placeholder="أدخل كلمة المرور" required>
       </div>
+
+      <p id="parent-msg" style="color: red; font-size: 13px; margin-bottom: 10px; text-align: center; display: none;"></p>
+
       <div class="form-group-options">
-  <label>
-    <input type="checkbox" name="remember"> تذكرني
-  </label>
-  <a href="#" class="forgot-pass">نسيت كلمة المرور؟</a>
-</div>
+        <label>
+          <input type="checkbox" name="remember"> تذكرني
+        </label>
+        <a href="#" class="forgot-pass">نسيت كلمة المرور؟</a>
+      </div>
       <button type="submit" class="submit-btn">متابعة الطالب</button>
-      
     </form>
   </div>
 
-  <!-- ربط ملف الـ JavaScript من المجلد بتاعه -->
   <script src="login.js"></script>
 </body>
 </html>
