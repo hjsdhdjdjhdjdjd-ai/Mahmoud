@@ -4,7 +4,11 @@
 
 }
 a {
-   color: #07cc2e;
+   color: hsl(75, 93%, 41%);
+   position: relative;
+   margin-bottom: 10px;
+
+
 }
 href {
       color: rgb(207, 21, 21);
@@ -135,6 +139,11 @@ nav ul ul ul summary{
 nav.main-menu > li {
     display: block;
     margin-bottom: 8px;
+}
+nav div a {
+    color: #14cbfd;
+    text-align: center;
+
 }
 
 /* 5. ضبط ألوان القوائم في الوضع الليلي */
